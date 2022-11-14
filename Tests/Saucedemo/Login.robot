@@ -11,8 +11,8 @@ ${BROWSER}    edge
 Login to saucedemo -site
     [Documentation]    Basic login to saucedemo by saving the element to variable
     [Tags]    Funtional test
-    open browser    ${URL}    ${BROWSER}
-    maximize browser window
+
+    Start Testcase
     ${user} =  Get WebElement    id:user-name
     input text    ${user}    standard_user
     ${pass} =    Get WebElement    id:password
@@ -24,9 +24,15 @@ Login to saucedemo -site
 Login2 to saucedemo -site
     [Documentation]    Basic login to saucedemo without saving element to variable
     [Tags]    Funtional test
-    open browser    ${URL}    ${BROWSER}
-    maximize browser window
+
+    Start Testcase
     input text    id:user-name    standard_user
     input text    id:password   secret_sauce
     click button    id:login-button
     close browser
+
+*** Keywords ***
+
+Start Testcase
+    open browser    ${URL}    ${BROWSER}
+    maximize browser window
