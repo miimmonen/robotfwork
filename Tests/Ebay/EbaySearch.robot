@@ -2,6 +2,9 @@
 Documentation    Basic search in Ebay
 Library    SeleniumLibrary
 
+Test Setup    Start Testcase
+Test Teardown    Finish Testcase
+
 *** Variables ***
 ${URL}    https://www.ebay.com
 
@@ -10,14 +13,15 @@ Verify basic search functionality for Ebay
     [Documentation]    This test case verifies the basic search
     [Tags]    Functional
 
-    Start Testcase
     input text    //*[@id="gh-ac"]    football
     click element    //input[@type='submit']
     wait until page contains    results for football
-    close browser
 
 
 *** Keywords ***
 Start Testcase
     open browser   ${URL}     firefox
     maximize browser window
+
+Finish Testcase
+    close browser
