@@ -2,11 +2,11 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-
+${search_text}    air fryer
 
 *** Keywords ***
 Input Search Text and Click Search
-    input text    //*[@id="gh-ac"]    mobile
+    input text    //*[@id="gh-ac"]    ${search_text}
     click element    //input[@type='submit']
 
 Click on Advanced Search Link
