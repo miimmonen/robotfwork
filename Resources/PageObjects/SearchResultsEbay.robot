@@ -10,7 +10,8 @@ ${search_result}    results for
 Verify Search Result
     wait until page contains    ${search_result} ${search_text}
 
-Select product condition
+Verify List Search
+    wait until page contains    ${search_result} ${search_list}[2]
 
 
 Select delivery options
