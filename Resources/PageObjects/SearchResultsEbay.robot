@@ -11,7 +11,7 @@ Verify Search Result
     wait until page contains    ${search_result} ${search_text}
 
 Verify List Search
-    wait until page contains    ${search_result} ${search_list}[2]
+    wait until page contains    ${search_result} ${search_dict.t}
 
 
 Select delivery options
