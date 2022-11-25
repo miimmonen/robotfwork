@@ -12,11 +12,11 @@ Test Teardown     Finish Testcase
 *** Test Cases ***
 Verify basic search
     [Documentation]    Bing search test
-    [Tags]    Functional test
+    [Tags]    Functional
 
 
     click element    ${SearchInputBox}
-    input text    ${SearchInputBox}   bing
+    input text    ${SearchInputBox}   ${SearchCriteria}
     Press Keys    ${SearchInputBox}    RETURN
     wait until page contains    ${URL}
 
