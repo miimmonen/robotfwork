@@ -78,4 +78,4 @@ Start Testcase
     maximize browser window
 
 Finish Testcase
-    close browser
+    close all browsers
