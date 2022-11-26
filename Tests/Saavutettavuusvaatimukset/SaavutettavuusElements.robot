@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    OperatingSystem
+Library    ../../Resources/Functions/color_to_hex.py
 
 *** Variables ***
 ${url}    https://www.saavutettavuusvaatimukset.fi
@@ -25,9 +26,12 @@ Check the background color of Newsletters
     [Documentation]    Checks the background color for newsletter-div
     Start Testcase
     ${main_bg}    Get WebElement    class:newsletter
+    capture element screenshot    ${main_bg}
     ${main_bg_color}    call method    ${main_bg}    value_of_css_property    background-color
     log    ${main_bg_color}
     should be equal     ${main_bg_color}    	rgba(251, 213, 165, 1)
+    ${hex}    get_hex_color    ${main_bg_color}
+    log    ${hex}
     Finish Testcase
 
 *** Keywords ***
