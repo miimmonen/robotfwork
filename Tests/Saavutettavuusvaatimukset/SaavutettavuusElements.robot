@@ -5,7 +5,7 @@ Library    OperatingSystem
 *** Variables ***
 ${url}    https://www.saavutettavuusvaatimukset.fi
 ${browser}    chrome
-${PATH}    ${CURDIR}/../../Results/links.txt
+${PATH}    ${CURDIR}/../../Results/saavutettavuus-links.txt
 
 *** Test Cases ***
 Check The Links on page
