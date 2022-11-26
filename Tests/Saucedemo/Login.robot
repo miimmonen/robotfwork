@@ -42,6 +42,24 @@ Login with Keywords
     Click Login
     Check Login
 
+Login with Keywords log Aliases
+    [Documentation]    Login using keywords and arguments. Opening multiple browsers, logging aliases and ID:s.
+    [Tags]    Functional
+    Input User Credentials    ${username}    ${password}
+    open browser    https://www.google.com    firefox
+    &{aliases}    get browser aliases
+    @{ids}    get browser ids
+    FOR    ${alias}    IN    @{aliases}
+    Log    ${alias}
+    END
+    FOR    ${id}    IN    @{ids}
+    Log    ${id}
+    END
+    close browser
+    switch browser    ChromeBrow
+    Click Login
+    Check Login
+
 *** Keywords ***
 
 Click Login
@@ -56,7 +74,7 @@ Check Login
     wait until page contains    Products
 
 Start Testcase
-    open browser    ${URL}    ${BROWSER}
+    open browser    ${URL}    ${BROWSER}    alias=ChromeBrow
     maximize browser window
 
 Finish Testcase
