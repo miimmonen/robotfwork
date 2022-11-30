@@ -10,21 +10,28 @@ ${search_input}    ohjelmointi
 *** Test Cases ***
 Basic Search For Courses
     [Documentation]    Input searchtext and seek for a common course. Check the results for the course.
+    ${default_wait}    get selenium implicit wait
+    log    ${default_wait}
+    ${time_out}    get selenium timeout
+    log    ${time_out}
     Start Testcase
     Input Text And Search    ${search_input}
-
     page should contain    Ohjelmointi 2
     page should contain    Ohjelmointi 1
     page should not contain    Kypsyysnäyte
     #wait until page contains    kissa
+    set selenium implicit wait    3s
     Finish Testcase
 
 Basic Search With Checkboxes
     [Documentation]    Input searchtext and seek for a common course with checbox selection. Check the results for the course.
     Start Testcase
+    ${impl_wait}    get selenium implicit wait
+    log    ${impl_wait}
+    set selenium implicit wait    0s
     select checkbox    id:type-courseUnit
     Input Text And Search    ${search_input}
-    page should contain    Ohjelmointi 2    timeout=6s
+    page should contain    Ohjelmointi 2
     page should contain    Ohjelmointi 1
     unselect checkbox    id:type-courseUnit
     select checkbox    id:type-module
