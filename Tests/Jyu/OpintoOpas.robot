@@ -24,7 +24,8 @@ Basic Search For Courses
     Finish Testcase
 
 Basic Search With Checkboxes
-    [Documentation]    Input searchtext and seek for a common course with checbox selection. Check the results for the course.
+    [Documentation]    Input searchtext and seek for a common
+    ...    course with checbox selection. Check the results for the course.
     Start Testcase
     ${impl_wait}    get selenium implicit wait
     log    ${impl_wait}
@@ -39,9 +40,18 @@ Basic Search With Checkboxes
     page should not contain    Ohjelmointi 1
     #wait until page contains    kissa    timeout=10s
     Finish Testcase
+
+Basic Search With Conditionals
+    [Documentation]    Input searchtext and check how many courses are found
+    ...    The courses are presented as list elements following a tag with a specific class.
+    Start Testcase
+    Input Text And Search    ${search_input}
+    ${list_element_count}    get element count    class:FullSearch__ResultList-sc-1ujxgbb-2 >> tag:li
+    run keyword if    ${list_element_count}==12    Log Found Courses
+    ...    ELSE    Log Courses Not Found
+    Finish Testcase
+
 *** Keywords ***
-
-
 Start Testcase
     open browser    ${url}    ${browser}
 
@@ -52,3 +62,9 @@ Input Text And Search
 
 Finish Testcase
     close all browsers
+
+Log Found Courses
+    log    All courses found
+
+Log Courses Not Found
+    log    Number of courses did not match expected
