@@ -8,18 +8,14 @@ Test Teardown     Finish Testcase
 
 *** Variables ***
 
-
 *** Test Cases ***
 Verify basic search
     [Documentation]    Bing search test
     [Tags]    Functional
-
-
     click element    ${SearchInputBox}
     input text    ${SearchInputBox}   ${SearchCriteria}
     Press Keys    ${SearchInputBox}    RETURN
     wait until page contains    ${URL}
-
 
 *** Keywords ***
 Start Testcase
