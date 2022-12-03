@@ -54,6 +54,7 @@ Basic Search With Conditionals
 *** Keywords ***
 Start Testcase
     open browser    ${url}    ${browser}
+    maximize browser window
 
 Input Text And Search
     [Arguments]     ${search_text}

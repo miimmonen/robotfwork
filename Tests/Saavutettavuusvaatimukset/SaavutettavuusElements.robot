@@ -37,6 +37,7 @@ Check the background color of Newsletters
 *** Keywords ***
 Start Testcase
     open browser    ${url}    ${browser}
+    maximize browser window
 
 
 Finish Testcase
