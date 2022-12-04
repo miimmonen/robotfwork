@@ -4,7 +4,7 @@ Library    SeleniumLibrary
 *** Variables ***
 
 ${url}    https://opinto-opas.jyu.fi/2022/fi/haku/
-${browser}    chrome
+${browser}    firefox
 ${search_input}    ohjelmointi
 
 *** Test Cases ***
@@ -15,6 +15,7 @@ Basic Search For Courses
     ${time_out}    get selenium timeout
     log    ${time_out}
     Start Testcase
+    page should contain    Haku
     Input Text And Search    ${search_input}
     page should contain    Ohjelmointi 2
     page should contain    Ohjelmointi 1
@@ -27,6 +28,7 @@ Basic Search With Checkboxes
     [Documentation]    Input searchtext and seek for a common
     ...    course with checbox selection. Check the results for the course.
     Start Testcase
+    page should contain    Haku
     ${impl_wait}    get selenium implicit wait
     log    ${impl_wait}
     set selenium implicit wait    0s
@@ -45,6 +47,7 @@ Basic Search With Conditionals
     [Documentation]    Input searchtext and check how many courses are found
     ...    The courses are presented as list elements following a tag with a specific class.
     Start Testcase
+    page should contain    Haku
     Input Text And Search    ${search_input}
     ${list_element_count}    get element count    class:FullSearch__ResultList-sc-1ujxgbb-2 >> tag:li
     run keyword if    ${list_element_count}==12    Log Found Courses
