@@ -1,11 +1,13 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    Collections
+Library    OperatingSystem
 
 *** Variables ***
 ${domain}    jsonplaceholder.typicode.com
 ${url}    https://${domain}
 ${browser}    firefox
+${PATH}    ${CURDIR}/../../Results/JsonPlaceholder-links.txt
 
 *** Test Cases ***
 Try out All Links on Landing Page
@@ -27,15 +29,21 @@ Open New Browser For Link
 
 Handle Links On New Page
     [Arguments]    @{list}
-    ${hrefs}    create dictionary
+    @{hrefs}    create list
     @{list}    get webelements    tag:a
     FOR    ${link}    IN    @{list}
     ${href} =   get element attribute    ${link}    href
         IF    ${href.__contains__('${domain}')}==True
+            append to list    ${hrefs}    ${href}
             Open New Browser For Link    ${href}
         ELSE
             continue for loop
         END
+    END
+    create file    ${PATH}
+    file should exist    ${PATH}
+    FOR    ${href}    IN    @{hrefs}
+    append to file    ${PATH}    ${href}\n
     END
 
 Finish Testcase
