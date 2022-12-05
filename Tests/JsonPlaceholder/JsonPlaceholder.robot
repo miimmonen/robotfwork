@@ -12,7 +12,7 @@ ${PATH}    ${CURDIR}/../../Results/JsonPlaceholder-links.txt
 *** Test Cases ***
 Try out All Links on Landing Page
     [Documentation]    Find every link on Landing page, if the link is to another page within same domain, access it
-    ...    in another browser-window, otherwise do nothing and continue to next link
+    ...    in another browser-window, otherwise do nothing and continue to next link.
     Start Testcase
     @{all_links}    create list
     Handle Links On New Page    @{all_links}
