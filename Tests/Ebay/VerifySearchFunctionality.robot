@@ -13,10 +13,8 @@ Test Teardown    CommonFunctionality.Finish Testcase
 Verify basic search
     [Documentation]    Test case verifies basic search
     [Tags]    Functional
-
     HeaderPageEbay.Input Search Text and Click Search
     SearchResultsEbay.Verify Search Result
-
 
 Very search from list
     [Documentation]    Test case verifies basic search from list of variables

@@ -39,6 +39,5 @@ Start Testcase
     open browser    ${url}    ${browser}
     maximize browser window
 
-
 Finish Testcase
     close all browsers

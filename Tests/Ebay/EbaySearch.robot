@@ -17,7 +17,6 @@ Verify basic search functionality for Ebay
     click element    //input[@type='submit']
     wait until page contains    results for football
 
-
 *** Keywords ***
 Start Testcase
     open browser   ${URL}     firefox
